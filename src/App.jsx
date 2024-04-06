@@ -60,7 +60,10 @@ export const App = () => {
                 </td>
               )}
 
-              <td data-cy="GoodTitle" className="is-vcentered">
+              <td data-cy="GoodTitle"
+                className={good === selectedGood ? (
+                  "is-vcentered has-background-success-light") : ("is-vcentered")}
+              >
                 {good}
               </td>
             </tr>
