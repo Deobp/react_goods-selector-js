@@ -1,8 +1,8 @@
 import 'bulma/css/bulma.css';
 import './App.scss';
 import { useState } from 'react';
+import cn from 'classnames';
 
-// const [selectedGood, setGood] = useState('Jam');
 export const goods = [
   'Dumplings',
   'Carrot',
@@ -35,7 +35,11 @@ export const App = () => {
       <table className="table">
         <tbody>
           {goods.map(good => (
-            <tr data-cy="Good" key={good}>
+            <tr
+              data-cy="Good"
+              key={good}
+              className={cn({ 'has-background-success-light': good === selectedGood })}
+            >
               {good === selectedGood ? (
                 <td>
                   <button
@@ -60,10 +64,7 @@ export const App = () => {
                 </td>
               )}
 
-              <td data-cy="GoodTitle"
-                className={good === selectedGood ? (
-                  "is-vcentered has-background-success-light") : ("is-vcentered")}
-              >
+              <td data-cy="GoodTitle" className="is-vcentered">
                 {good}
               </td>
             </tr>
